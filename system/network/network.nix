@@ -8,16 +8,14 @@
   networking.firewall.enable = true;
   networking.firewall = {
 
-    allowedTCPPorts = [ 25565 ];
-  };
-
-
-  networking.nat = {
-    forwardPorts = [
-      {
-        sourcePort = 25565;
-        proto = "tcp";
-      }
+    allowedTCPPorts = [ 
+      25565
+    ];
+    allowedUDPPorts = [
+      24454
     ];
   };
+
+
+
 }
