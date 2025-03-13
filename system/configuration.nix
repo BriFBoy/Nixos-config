@@ -45,7 +45,7 @@
     spotify
     vesktop
     discord
-    firefox
+    peaclock
     jetbrains.idea-community
     inputs.zen-browser.packages.${system}.default
     modrinth-app
