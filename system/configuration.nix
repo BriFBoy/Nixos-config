@@ -2,12 +2,12 @@
 {
   imports =
     [ 
-      
       ./hardware-configuration.nix
       ./nvidia.nix
       ./plasma6.nix
       ./hyprland.nix
       ./network/network.nix
+      ./programming/linkedlibraries.nix
     ];
 
   # Bootloader.
