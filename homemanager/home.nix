@@ -12,7 +12,7 @@
     ./Cli/fastfetch.nix
     ./Cli/git.nix
   ];
-
+  gtk.cursorTheme.size = 24;
 
 
   

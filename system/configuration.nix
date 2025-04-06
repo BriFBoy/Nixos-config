@@ -7,7 +7,6 @@
       ./plasma6.nix
       ./hyprland.nix
       ./network/network.nix
-      ./programming/linkedlibraries.nix
     ];
 
   # Bootloader.
@@ -46,10 +45,10 @@
     vesktop
     discord
     peaclock
-    jetbrains.idea-community
+    jetbrains.idea-community-bin
     inputs.zen-browser.packages.${system}.default
     modrinth-app
-
+    libreoffice
     ];
   };
   programs.steam = {
@@ -70,6 +69,7 @@
     cava
     cmatrix
     git
+    onedriver
 
   ];
   fonts.packages = with pkgs; [
@@ -94,6 +94,12 @@
     jack.enable = true;
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    jdk
+  ];
+
+ services.postgresql.enable = true;
 
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
