@@ -2,5 +2,8 @@
 
 {
   services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = [ pkgs.kdePackages.kate ];
+  environment.plasma6.excludePackages = [ 
+  pkgs.kdePackages.kate
+  pkgs.kdePackages.dolphin 
+  ];
 }

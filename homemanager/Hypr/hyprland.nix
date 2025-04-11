@@ -20,8 +20,8 @@
     ];
 
     "$terminal" = "alacritty";
-    "$fileManager" = "dolphin";
-    "$browser" = "zen";
+    "$fileManager" = "nemo";
+    "$browser" = "floorp";
     "$menu" = "rofi -show drun";
 
     exec-once = [

@@ -46,9 +46,9 @@
     discord
     peaclock
     jetbrains.idea-community-bin
-    inputs.zen-browser.packages.${system}.default
     modrinth-app
     libreoffice
+    floorp
     ];
   };
   programs.steam = {
@@ -70,6 +70,7 @@
     cmatrix
     git
     onedriver
+    nemo
 
   ];
   fonts.packages = with pkgs; [
