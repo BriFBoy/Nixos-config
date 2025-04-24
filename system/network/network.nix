@@ -1,7 +1,7 @@
-{config, pkgs, ...}:
+{config, pkgs, SystemInfo, ...}:
 
 {
-  networking.hostName = "BrianNixos"; # Define your hostname.
+  networking.hostName = SystemInfo.hostname; # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
 
   #Firewall

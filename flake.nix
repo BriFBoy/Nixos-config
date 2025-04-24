@@ -13,23 +13,33 @@
   
   outputs = {self, nixpkgs, home-manager, ...}@inputs:
     let
+      UserInfo = {
+        username = "brian";
+      };
+      SystemInfo = {
+        hostname = "BrianNixos";
+        system = "x86_64-linux";
+      };
+
+
       lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      
+      pkgs = nixpkgs.legacyPackages.${SystemInfo.system};
     in {
     nixosConfigurations = {
-      BrianNixos = lib.nixosSystem {
+      ${SystemInfo.hostname} = lib.nixosSystem {
         
         specialArgs = { 
           inherit inputs;
-          inherit system;
+          inherit SystemInfo;
+          inherit UserInfo;
         };
         modules = [ 
           ./system/configuration.nix];
       };
     };
     homeConfigurations = {
-      brian = home-manager.lib.homeManagerConfiguration {
+      ${UserInfo.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./homemanager/home.nix ];
       };

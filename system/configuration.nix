@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, UserInfo, SystemInfo, ... }:
 {
   imports =
     [ 
@@ -7,6 +7,7 @@
       ./plasma6.nix
       ./hyprland.nix
       ./network/network.nix
+      ./docker.nix
     ];
 
   # Bootloader.
@@ -33,9 +34,9 @@
   console.keyMap = "no";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.brian = {
+  users.users.${UserInfo.username} = {
     isNormalUser = true;
-    description = "brian";
+    description = "Main User";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     prismlauncher
@@ -49,6 +50,7 @@
     modrinth-app
     libreoffice
     floorp
+    pgadmin4-desktopmode
     ];
   };
   programs.steam = {
@@ -71,7 +73,7 @@
     git
     onedriver
     nemo
-
+    neovim
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -100,8 +102,8 @@
     jdk
   ];
 
- services.postgresql.enable = true;
-
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ UserInfo.username ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
